@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- * Main – A program that prints a line of function
+ * Main - Entry point
  *
-  * Return: 0 (Success)
+  * Return:Always 0 (Success)
 */
 int main(void)
 {
