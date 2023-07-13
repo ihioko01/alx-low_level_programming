@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * Main –Entry point
+ * Main – A program that prints a line of function
  *
   * Return: 0 (Success)
 */
