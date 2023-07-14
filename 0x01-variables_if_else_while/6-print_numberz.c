@@ -1,14 +1,22 @@
 #include <unistd.h>
-/**
- * main - Entry point
- * Return: Always 0 (Success)
- */
 
+/**
+ * _putchar - Writes a character to the standard output
+ * @c: The character to write
+ *
+ * Return: On success, returns the number of bytes written.
+ *         On error, returns -1 and sets errno appropriately.
+ */
 int _putchar(char c)
 {
-	return write(1, &c, 1);
+	return (write(1, &c, 1));
 }
 
+/**
+ * main - Entry point of the program
+ *
+ * Return: Always returns 0 to indicate successful execution
+ */
 int main(void)
 {
 	int i;
@@ -18,7 +26,5 @@ int main(void)
 
 	_putchar('\n');
 
-	return 0;
+	return (0);
 }
-
-

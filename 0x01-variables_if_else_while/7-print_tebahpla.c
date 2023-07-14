@@ -1,26 +1,33 @@
 #include <unistd.h>
-/**
- * main - Entry point of the program
- *
- * Return: Always 0 (Success)
- */
 
+/**
+* _putchar - Writes a character to the standard output (stdout)
+* @c: The character to be written
+*
+* Return: On success, 1 is returned. On error, -1 is returned,
+*         and errno is set appropriately.
+*/
 int _putchar(char c)
 {
-	return write(1, &c, 1);
+return (write(1, &c, 1));
 }
 
+/**
+* main - Entry point of the program
+*
+* Return: Always (0) (Success)
+*/
 int main(void)
 {
-	char c;
+char c;
 
-	for (c = 'z'; c >= 'a'; c--)
-	{
-		_putchar(c);
-	}
+for (c = 'z'; c >= 'a'; c--)
+{
+_putchar(c);
+}
 
-	_putchar('\n');
+_putchar('\n');
 
-	return (0);
+return (0);
 }
 
