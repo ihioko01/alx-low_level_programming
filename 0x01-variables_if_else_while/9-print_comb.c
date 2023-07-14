@@ -7,26 +7,27 @@
 
 int _putchar(char c)
 {
-	return write(1, &c, 1);
+    return write(1, &c, 1);
 }
 
 int main(void)
 {
-	int i;
+    int i;
 
-	for (i = 0; i < 10; i++)
-	{
-		_putchar('0' + i);
+    for (i = 0; i < 10; i++)
+    {
+        _putchar('0' + i);
 
-		if (i != 9)
-		{
-			_putchar(',');
-			_putchar(' ');
-		}
-	}
+        if (i != 9)
+        {
+            _putchar(',');
+            _putchar(' ');
+            i++;  // Increment i by 1 to skip the next iteration
+        }
+    }
 
-	_putchar('\n');
+    _putchar('\n');
 
-	return (0);
+    return (0);
 }
 
