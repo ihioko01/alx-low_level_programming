@@ -5,29 +5,28 @@
  * Return: Always 0
  */
 
-int _putchar(char c)
+int _putchar(int c)
 {
     return write(1, &c, 1);
 }
 
 int main(void)
 {
-    int i;
+    int num;
 
-    for (i = 0; i < 10; i++)
+    for (num = 0; num < 10; num++)
     {
-        _putchar('0' + i);
+        _putchar(num + '0');
 
-        if (i != 9)
+        if (num != 9)
         {
             _putchar(',');
             _putchar(' ');
-            i++;  // Increment i by 1 to skip the next iteration
         }
     }
 
     _putchar('\n');
 
-    return (0);
+    return 0;
 }
 
