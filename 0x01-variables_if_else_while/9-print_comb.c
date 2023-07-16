@@ -1,16 +1,4 @@
-#include <unistd.h>
-
-/**
-* _putchar - Writes a character to the standard output (stdout)
-* @c: The character to be written
-*
-* Return: On success, 1 is returned. On error, -1 is returned,
-*         and errno is set appropriately.
-*/
-int _putchar(int c)
-{
-return (write(1, &c, 1));
-}
+#include <stdio.h>
 
 /**
 * main - Entry point of the program
@@ -23,16 +11,16 @@ int num;
 
 for (num = 0; num < 10; num++)
 {
-_putchar(num + '0');
+putchar(num + '0');
 
 if (num != 9)
 {
-_putchar(',');
-_putchar(' ');
+putchar(',');
+putchar(' ');
 }
 }
 
-_putchar('\n');
+putchar('\n');
 
 return (0);
 }
