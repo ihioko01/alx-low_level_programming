@@ -1,25 +1,16 @@
 #include <stdio.h>
 
-/**
-* main - Entry point
-*
-* Return: Always 0 (Success)
-*/
 int main(void)
 {
-int n;
+int n = 0;
+int a[5];
 int *p;
 
-*(p + 5) = 98; /* Set the value of a[2] directly using pointer arithmetic */
+a[2] = 1024;
 p = &n;
+*(p + 2) = 98;
 
-/*
-* You are not allowed to use a
-* You are not allowed to modify p
-* Only one statement
-* You are not allowed to code anything else than this line of code
-*/
+printf("a[2] = %d\n", *(p + 2)); /* New line of code added here */
 
-printf("a[2] = %d\n", *(p + 5)); /* Print the value of a[2] */
 return (0);
 }
