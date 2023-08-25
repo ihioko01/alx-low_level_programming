@@ -1,4 +1,4 @@
-#include <stddef.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
@@ -13,7 +13,7 @@ size_t counter = 0;
 
 while (h)
 {
-counter++
+counter++;
 h = h->next;
 }
 return (counter);
