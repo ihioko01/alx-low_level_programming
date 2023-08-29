@@ -4,9 +4,9 @@
 * @head: listint_t list to be freed
 *
 */
-void free_listint(listint_t *head);
+void free_listint(listint_t *head)
 {
-litint_t *free_node;
+listint_t *free_node;
 
 while (head)
 {
