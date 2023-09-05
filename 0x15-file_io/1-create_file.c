@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
 * create_file - Create a file and write a text content on it.
@@ -15,10 +14,9 @@ return (-1);
 if (text_content != NULL)
 {
 for (len = 0; text_content[len] != '\0'; len++)
-;
 }
 
-fd = open(filename, 0_CREAT | 0_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
+fd = open(filename, 0_CREAT | 0_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
 if (fd == -1)
 return (-1);
 
