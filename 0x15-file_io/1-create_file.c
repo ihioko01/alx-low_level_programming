@@ -14,12 +14,20 @@ if (filename == NULL)
 return (-1);
 if (text_content != NULL)
 {
-for (len = 0; text_content[len] != '\0'; len++;)
+for (len = 0; text_content[len] != '\0'; len++)
+;
 }
+
 fd = open(filename, 0_CREAT | 0_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
-tc = write(fd, text_content, len);
-if (fd == -1 || tc == -1)
+if (fd == -1)
 return (-1);
+
+tc = write(fd, text_content, len);
+if (tc == -1)
+{
+close(fd);
+return (-1);
+}
 
 close(fd);
 return (1);
