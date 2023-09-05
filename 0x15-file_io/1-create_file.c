@@ -13,10 +13,11 @@ if (filename == NULL)
 return (-1);
 if (text_content != NULL)
 {
-for (len = 0; text_content[len] != '\0'; len++)
+for (len = 0; text_content[len] != '\0' ; len++)
+;
 }
 
-fd = open(filename, 0_CREAT | 0_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
+fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR);
 if (fd == -1)
 return (-1);
 
