@@ -14,11 +14,12 @@ int i, count = 0;
 unsigned long int current;
 unsigned long int flex = n ^ m;
 
-for (int i = 63; i >= 0; i--)
+for (i = 63; i >= 0; i--)
 {
-count += (flex >> i) & 1;
+current = flex >> i;
+if (current & 1)
+count++;
 }
 
 return (count);
 }
-
