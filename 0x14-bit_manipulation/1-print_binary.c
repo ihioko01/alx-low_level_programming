@@ -10,7 +10,7 @@ void print_binary(unsigned long int n)
 unsigned long int current;
 int i, flag = 0;
 /*Initialize a flag to track when to start printing binary digits */
-for (i = 31; i >= 0; i--)
+for (i = 63; i >= 0; i--)
 {
 current = n >> i;
 
