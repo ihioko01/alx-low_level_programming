@@ -22,14 +22,14 @@ if (text_content != NULL)
 {
 for (len = 0; text_content[len];)
 len++;
-et
+}
 fd = open(filename, O_WRONLY | O_APPEND);
-write_result = write(o, text_content, len);
+write_result = write(fd, text_content, len);
 
 if (fd == -1 || write_result == -1)
 return (-1);
 
-close(o);
+close(fd);
 
 return (1);
 }
