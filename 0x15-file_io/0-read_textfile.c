@@ -1,8 +1,7 @@
-#include <stdlib.h>
-#include <fcntl.h>
+#include "main.h"
 #include <unistd.h>
-
-ssize_t _putchar(char c);
+#include <fcntl.h>
+#include <stdlib.h>
 
 /**
 * read_textfile - Reads and prints a text file to standard output.
@@ -14,7 +13,7 @@ ssize_t _putchar(char c);
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 int fd;
-ssize_t r, w;
+ssize_t bytes_read, bytes_written;
 char *buffer;
 
 if (filename == NULL)
@@ -31,29 +30,25 @@ close(fd);
 return (0);
 }
 
-r = read(fd, buffer, letters);
-if (r == -1)
+bytes_read = read(fd, buffer, letters);
+if (bytes_read == -1)
 {
 close(fd);
 free(buffer);
 return (0);
 }
 
-w = 0;
-while (w < r)
-{
-if (_putchar(buffer[w]) == -1)
+bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
+if (bytes_written == -1 || (size_t)bytes_written != bytes_read)
 {
 close(fd);
 free(buffer);
 return (0);
 }
-w++;
-}
 
 close(fd);
 free(buffer);
 
-return (w);
+return (bytes_written);
 }
 
