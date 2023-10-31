@@ -1,54 +1,45 @@
 #include "main.h"
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 #include <stdlib.h>
-
 /**
-* read_textfile - Reads and prints a text file to standard output.
-* @filename: Name of the file to read.
-* @letters: The number of letters to read and print.
-*
-* Return: The actual number of letters read and printed. 0 on failure.
+* read_textfile -  reads a text file and prints
+* @filename: pointer to the file to be read
+* @letters: number of letters it should read and print
+* Return: the actual number of letters it could read and print
 */
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-int fd;
-ssize_t bytes_read, bytes_written;
-char *buffer;
+int file;
+char *word;
+ssize_t word_written, word_read;
 
 if (filename == NULL)
 return (0);
-
-fd = open(filename, O_RDONLY);
-if (fd == -1)
+file = open(filename, O_RDWR);
+if (file < 0)
 return (0);
-
-buffer = malloc(letters);
-if (buffer == NULL)
+word = malloc(sizeof(char) * letters);
+if (word == NULL)
 {
-close(fd);
+free(word);
 return (0);
 }
-
-bytes_read = read(fd, buffer, letters);
-if (bytes_read == -1)
+word_read = read(file, word, letters);
+if (word_read < 1)
 {
-close(fd);
-free(buffer);
+free(word);
 return (0);
 }
 
-bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
-if (bytes_written == -1 || (size_t)bytes_written != bytes_read)
-{
-close(fd);
-free(buffer);
+word_written = write(STDOUT_FILENO, word, word_read);
+
+if (word_written < 0 || word_written != word_read)
 return (0);
+
+close(file);
+return (word_written);
 }
-
-close(fd);
-free(buffer);
-
-return (bytes_written);
-}
-
